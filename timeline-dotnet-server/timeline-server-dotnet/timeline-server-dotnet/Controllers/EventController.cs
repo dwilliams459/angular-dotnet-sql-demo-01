@@ -28,10 +28,11 @@ namespace timeline_server_dotnet.Controllers
             return events;
         }
 
-        [HttpGet("{id}")]
-        public async Task<Event> Get(int id)
+        [HttpGet]
+        [Route("[action]/{id=0}")]
+        public async Task<Event> Item(int? id)
         {
-            if (id > 0)
+            if (id != 0)
             {
                 return await _context.Events.Where(e => e.ID == id).FirstOrDefaultAsync();
             }
@@ -48,6 +49,43 @@ namespace timeline_server_dotnet.Controllers
             await _context.SaveChangesAsync();
 
             return newEvent.ID;
+        }
+
+        [HttpPut]
+        public async Task<Event> Update([FromBody] Event updatedEvent)
+        {
+            var existingEvent = await _context.Events.FirstOrDefaultAsync(e => e.ID == updatedEvent.ID);
+            if (existingEvent == null)
+            {
+                return null;
+            }
+
+            existingEvent.Name = updatedEvent.Name;
+            existingEvent.Owner = updatedEvent.Owner;
+            existingEvent.Description = updatedEvent.Description;
+            existingEvent.EventDate = updatedEvent.EventDate;
+
+            await _context.SaveChangesAsync();
+
+            existingEvent = await _context.Events.FirstOrDefaultAsync(e => e.ID == updatedEvent.ID);
+            return existingEvent;
+        }
+
+        [HttpDelete]
+        [Route("[action]/{id}")]
+        public async Task<bool> Delete(int id)
+        {
+            try
+            {
+                var eventToDelete = await _context.Events.FirstOrDefaultAsync(e => e.ID == id);
+                _context.Events.Remove(eventToDelete);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }        
         }
     }
 }
