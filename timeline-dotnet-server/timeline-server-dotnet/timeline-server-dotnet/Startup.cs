@@ -29,6 +29,14 @@ namespace timeline_server_dotnet
             services.AddDbContext<timelineDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("Timeline"))
             );
+
+            services.AddCors(ops =>  {
+                ops.AddPolicy("AllowAnyOrigin", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                });
+            });
+
             services.AddControllers();
         }
 
@@ -41,6 +49,8 @@ namespace timeline_server_dotnet
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowMyOrigin");
 
             app.UseAuthorization();
 
