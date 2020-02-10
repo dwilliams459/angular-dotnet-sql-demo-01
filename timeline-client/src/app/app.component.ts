@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-//import { OktaAuthService } from '@okta/okta-angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'timeline-client';
   isAuthenticated: boolean;
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.isAuthenticated = true;
   }
 
