@@ -24,8 +24,12 @@ export class ServerService {
       });
     }
 
-    getEvents() {
+    getEventList() {
       return this.request('GET', `${environment.serverUrl}/event`);
+    }
+
+    getEvent(event) {
+      return this.request('GET', `${environment.serverUrl}/event/${event.id}`);
     }
 
     createEvent(event) {
@@ -33,7 +37,7 @@ export class ServerService {
     }
 
     updateEvent(event) {
-      return this.request('PUT', `${environment.serverUrl}/event/${event.id}`, event);
+      return this.request('PUT', `${environment.serverUrl}/event`, event);
     }
 
     deleteEvent(event) {

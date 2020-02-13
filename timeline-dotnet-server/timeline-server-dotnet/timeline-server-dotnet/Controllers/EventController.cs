@@ -29,8 +29,8 @@ namespace timeline_server_dotnet.Controllers
         }
 
         [HttpGet]
-        [Route("[action]/{id=0}")]
-        public async Task<Event> Item(int? id)
+        [Route("{id}")]
+        public async Task<Event> Item(int id)
         {
             if (id != 0)
             {
@@ -42,7 +42,7 @@ namespace timeline_server_dotnet.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost] //, Route("insert/")]
         public async Task<int> Insert([FromBody] Event newEvent)
         {
             _context.Events.Add(newEvent);
@@ -51,7 +51,7 @@ namespace timeline_server_dotnet.Controllers
             return newEvent.ID;
         }
 
-        [HttpPut]
+        [HttpPut] //, Route("update/")]
         public async Task<Event> Update([FromBody] Event updatedEvent)
         {
             var existingEvent = await _context.Events.FirstOrDefaultAsync(e => e.ID == updatedEvent.ID);
@@ -72,7 +72,7 @@ namespace timeline_server_dotnet.Controllers
         }
 
         [HttpDelete]
-        [Route("[action]/{id}")]
+        [Route("{id}")]
         public async Task<bool> Delete(int id)
         {
             try
