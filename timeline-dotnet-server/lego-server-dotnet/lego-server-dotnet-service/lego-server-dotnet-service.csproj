@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>lego_server_dotnet_service</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lego-server-dotnet-data\lego-server-dotnet-data.csproj" />
+    <ProjectReference Include="..\lego-server-dotnet-domain\lego-server-dotnet-domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>lego_server_dotnet_domain</RootNamespace>
+  </PropertyGroup>
+
+</Project>

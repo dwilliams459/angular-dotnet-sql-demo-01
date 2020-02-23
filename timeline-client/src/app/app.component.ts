@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'timeline-client';
+  title = 'Lego Catalog';
   isAuthenticated: boolean;
 
   constructor(private httpClient: HttpClient) {

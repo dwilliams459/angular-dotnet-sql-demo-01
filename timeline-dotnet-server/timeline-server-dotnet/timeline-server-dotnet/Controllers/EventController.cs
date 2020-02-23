@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using timeline_server_dotnet.data;
+using timeline_server_dotnet_data;
 
 namespace timeline_server_dotnet.Controllers
 {
@@ -14,9 +14,9 @@ namespace timeline_server_dotnet.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
-        private timelineDbContext _context;
+        private PartsCatalogDbContext _context;
 
-        public EventController(timeline_server_dotnet.data.timelineDbContext context)
+        public EventController(timeline_server_dotnet_data.PartsCatalogDbContext context)
         {
             _context = context;
         }

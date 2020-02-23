@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { Part } from './part';
 
 @Injectable({
   providedIn: 'root'
@@ -43,4 +44,9 @@ export class ServerService {
     deleteEvent(event) {
       return this.request('DELETE', `${environment.serverUrl}/event/${event.id}`);
     }
+
+    getPart(legoId: number) {
+      return this.request('GET', `${environment.serverUrl}/part/${legoId}`);
+    }
+
 }

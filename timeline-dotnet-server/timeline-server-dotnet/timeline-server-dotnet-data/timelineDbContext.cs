@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace timeline_server_dotnet.data
+namespace timeline_server_dotnet_data
 
 {
-    public class timelineDbContext : DbContext
-    {
-        public DbSet<Event> Events { get; set; }
+    // public class PartsCatalogDbContext : DbContext
+    // {
+    //     public DbSet<Event> Events { get; set; }
 
-        public timelineDbContext(DbContextOptions<timelineDbContext> options) : base(options)
-        {
-        }
+    //     public PartsCatalogDbContext(DbContextOptions<PartsCatalogDbContext> options) : base(options)
+    //     {
+    //     }
 
-    }
+    // }
 }
