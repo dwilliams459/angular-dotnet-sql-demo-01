@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../part';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { partSearchCriteria } from '../PartSearchCriteria';
+import { PartsService } from '../parts.service';
+import { PartResponse } from '../PartResponse';
 
 @Component({
   selector: 'app-partlist',
@@ -9,21 +12,41 @@ import { FormGroup } from '@angular/forms';
 })
 export class PartlistComponent implements OnInit {
   legoParts: Part[] = [];
+  part: Part;
 
   form: FormGroup;
 
-
-  constructor(private fb: FormBuilder) { }
-
+  constructor(private fb: FormBuilder,
+              private partService: PartsService) { }
 
   ngOnInit() {
-    
     this.form = this.fb.group({
-      name: [this.legoParts .name, Validators.required],
-      description: this.currentEvent.description,
-      date: [this.currentEvent.date, Validators.required],
     });
-
+    this.search();
   }
 
+  search() {
+    const partSearch: partSearchCriteria = {
+      partId: 0,
+      itemId: "",
+      itemName: "Electrical",
+      categoryName: "",
+      page: 0,
+      pageSize: 10
+      //name: this.form.get('name').value,
+    };
+
+    var response = this.partService.getParts(partSearch).then((response: any) => {
+      console.log('Response', response);
+      debugger;
+      const partlistResponse = <PartResponse[]>response;
+
+      this.legoParts = [];
+
+      partlistResponse.forEach(pr => {
+        let part = this.partService.mapPartResponse(pr);
+        this.legoParts.push(part);
+      });
+    });
+  }
 }

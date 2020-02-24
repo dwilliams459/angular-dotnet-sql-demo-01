@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../part';
+import { partSearchCriteria } from '../PartSearchCriteria';
+import { PartsService } from '../parts.service';
+import { PartResponse } from '../PartResponse';
 
 @Component({
   selector: 'app-part',
@@ -7,25 +10,22 @@ import { Part } from '../part';
   styleUrls: ['./part.component.css']
 })
 export class PartComponent implements OnInit {
-  part: Part = {
-    partId: 66965,
-    itemId: "87079pb636R",
-    itemType: "P",
-    itemName: "Tile 2 x 4 with Door with Gold Pull Ring Pattern Right Side Sticker - Set 71043",
-    category: 39,
-    categoryName: "Tile", 
-    weight: 0.900,
-    dimensionX: 2, 
-    dimensionY: 4, 
-    dimensionZ: null, 
-    imageLink: "https://img.bricklink.com/ItemImage/PL/87079pb636R.png",
-    iconLink: "https://img.bricklink.com/ItemImage/PT/88/87079pb636R.t1.png", // "https://img.bricklink.com/ItemImage/PT/1/87079pb636R.t1.png",
-  };
+  part: Part; 
 
-  constructor() {
+  constructor(private partService: PartsService) {
   }
 
   ngOnInit() {
+    this.getPart()
   }
+  
+  getPart() {
+    var response = this.partService.getByPartId(10006).then((response: any) => {
+      console.log('Response', response);
+      this.part = this.partService.mapPartResponse(response);
+    });
+  }
+
+
 
 }

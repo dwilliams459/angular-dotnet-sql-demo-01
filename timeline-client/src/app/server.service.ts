@@ -45,8 +45,8 @@ export class ServerService {
       return this.request('DELETE', `${environment.serverUrl}/event/${event.id}`);
     }
 
-    getPart(legoId: number) {
-      return this.request('GET', `${environment.serverUrl}/part/${legoId}`);
+    getPartById(partId: number) {
+      return this.request('GET', `${environment.serverUrl}/part/${partId}`);
     }
 
 }

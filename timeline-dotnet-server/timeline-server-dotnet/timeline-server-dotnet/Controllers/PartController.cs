@@ -22,12 +22,31 @@ namespace timeline_server_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Part>> Get()
+        [Route("partId/{partId}")]
+        public async Task<Part> GetByPartId(int partId = 0)
         {
-            return await _context.Parts.Include(p => p.Category).Include(p => p.ItemType).Take(25).ToListAsync();   // .Include(p => p.Category)
+            var partQuery = (IQueryable<Part>) _context.Parts.Include(p => p.Category).Include(p => p.ItemType);
+            if (partId >= 0)
+            {
+                partQuery = partQuery.Where(p => p.PartId == partId);
+            }
+
+            return await partQuery.FirstOrDefaultAsync();
         }
 
         [HttpGet]
+        [Route("{itemId?}")]
+        public async Task<Part> Get(string itemId = "")
+        {
+            if (string.IsNullOrWhiteSpace(itemId))
+            {
+                return new Part();
+            }
+
+            return await _context.Parts.Include(p => p.Category).Include(p => p.ItemType).FirstOrDefaultAsync(p => p.ItemId == itemId);
+        }
+
+        [HttpPost]
         [Route("search")]
         public async Task<List<Part>> GetSearch(PartSearchCriteria searchCriteria = null)
         {
