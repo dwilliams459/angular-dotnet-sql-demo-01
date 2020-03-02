@@ -13,25 +13,31 @@ import { HomeComponent } from './home/home.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
 //import { OktaAuthModule } from '@okta/okta-angular';
+import { PartlistComponent } from './partlist/partlist.component';
+import { PartComponent } from './part/part.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    TimelineComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BsDatepickerModule.forRoot(),
-    NgxTimelineModule,
-    ModalModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      HomeComponent,
+      TimelineComponent,
+      PartlistComponent,
+      PartComponent
+   ],
+   imports: [
+      BrowserModule,
+      HttpClientModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      FormsModule,
+      ReactiveFormsModule,
+      BsDatepickerModule.forRoot(),
+      NgxTimelineModule,
+      ModalModule.forRoot()
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

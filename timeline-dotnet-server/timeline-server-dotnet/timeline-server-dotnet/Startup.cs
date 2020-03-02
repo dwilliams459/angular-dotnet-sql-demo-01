@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using timeline_server_dotnet.data;
+using timeline_server_dotnet_data;
 
 namespace timeline_server_dotnet
 {
@@ -26,9 +26,12 @@ namespace timeline_server_dotnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<timelineDbContext>(opt =>
+            services.AddDbContext<timeline_server_dotnet_data.PartsCatalogDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("Timeline"))
             );
+
+            services.AddCors();
+
             services.AddControllers();
         }
 
@@ -39,6 +42,8 @@ namespace timeline_server_dotnet
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
 

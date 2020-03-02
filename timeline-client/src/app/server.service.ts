@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { Part } from './part';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,12 @@ export class ServerService {
       });
     }
 
-    getEvents() {
+    getEventList() {
       return this.request('GET', `${environment.serverUrl}/event`);
+    }
+
+    getEvent(event) {
+      return this.request('GET', `${environment.serverUrl}/event/${event.id}`);
     }
 
     createEvent(event) {
@@ -33,10 +38,15 @@ export class ServerService {
     }
 
     updateEvent(event) {
-      return this.request('PUT', `${environment.serverUrl}/event/${event.id}`, event);
+      return this.request('PUT', `${environment.serverUrl}/event`, event);
     }
 
     deleteEvent(event) {
       return this.request('DELETE', `${environment.serverUrl}/event/${event.id}`);
     }
+
+    getPartById(partId: number) {
+      return this.request('GET', `${environment.serverUrl}/part/${partId}`);
+    }
+
 }

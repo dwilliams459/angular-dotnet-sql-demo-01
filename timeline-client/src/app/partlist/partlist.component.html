@@ -1,0 +1,13 @@
+<div class="container page-content">
+  <div class="row">
+    <div class="col-sm-12 col-md">
+      <h2>My Lego</h2>
+      <ul class="parts">
+        <li *ngFor="let part of legoParts">
+          <span class="badge">{{part.itemId}}</span> {{part.itemName}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+ 

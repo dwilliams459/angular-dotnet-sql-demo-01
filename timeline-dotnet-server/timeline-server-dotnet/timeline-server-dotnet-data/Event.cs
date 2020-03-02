@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace timeline_server_dotnet.data
+namespace timeline_server_dotnet_data
 {
     public class Event
     {
