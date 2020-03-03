@@ -38,7 +38,6 @@ export class PartlistComponent implements OnInit {
 
     var response = this.partService.getParts(partSearch).then((response: any) => {
       console.log('Response', response);
-      debugger;
       const partlistResponse = <PartResponse[]>response;
 
       this.legoParts = [];
