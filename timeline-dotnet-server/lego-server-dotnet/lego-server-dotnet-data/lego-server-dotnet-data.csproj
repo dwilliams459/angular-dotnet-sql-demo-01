@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lego-server-dotnet-database\lego-server-dotnet-database.sqlproj" />
     <ProjectReference Include="..\lego-server-dotnet-domain\lego-server-dotnet-domain.csproj" />
   </ItemGroup>
 

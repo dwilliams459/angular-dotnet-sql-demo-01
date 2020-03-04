@@ -8,6 +8,11 @@ namespace lego_server_dotnet_data
 {
     public class LegoCatalogDbContext : DbContext
     {
+        public LegoCatalogDbContext(DbContextOptions<LegoCatalogDbContext> options) : base (options)
+        {
+
+        }
+
         public DbSet<Part> Parts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Color> Colors { get; set; }
