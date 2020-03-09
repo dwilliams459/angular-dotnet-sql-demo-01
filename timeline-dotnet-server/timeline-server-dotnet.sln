@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "timeline-server-dotnet", "timeline-server-dotnet\timeline-server-dotnet.csproj", "{856081F6-D5AC-4851-B475-DDDD1C4E993F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "timeline-server-dotnet-data", "timeline-server-dotnet-data\timeline-server-dotnet-data.csproj", "{2C6767B6-F0ED-40ED-BDA6-865EAAA45FBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "timeline-server-dotnet-data", "timeline-server-dotnet-data\timeline-server-dotnet-data.csproj", "{2C6767B6-F0ED-40ED-BDA6-865EAAA45FBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "image-resize", "image-resize\image-resize.csproj", "{812AF59B-117D-4E92-A502-83688BC67CF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2C6767B6-F0ED-40ED-BDA6-865EAAA45FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C6767B6-F0ED-40ED-BDA6-865EAAA45FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C6767B6-F0ED-40ED-BDA6-865EAAA45FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812AF59B-117D-4E92-A502-83688BC67CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812AF59B-117D-4E92-A502-83688BC67CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812AF59B-117D-4E92-A502-83688BC67CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812AF59B-117D-4E92-A502-83688BC67CF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

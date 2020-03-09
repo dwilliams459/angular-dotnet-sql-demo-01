@@ -23,6 +23,11 @@
         Part List
       </a>
     </li> 
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['partgrid']">
+        Part Grid
+      </a>
+    </li> 
   </ul>
   <span>
     <button class="btn btn-primary" *ngIf="!isAuthenticated" (click)="login()"> Login </button>

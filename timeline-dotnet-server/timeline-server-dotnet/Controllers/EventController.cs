@@ -12,7 +12,7 @@ namespace timeline_server_dotnet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventController : ControllerBase
+    public class EventController : Controller
     {
         private PartsCatalogDbContext _context;
 

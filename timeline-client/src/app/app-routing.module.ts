@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { PartComponent } from './part/part.component';
 import { PartlistComponent } from './partlist/partlist.component';
+import { PartgridComponent } from './partgrid/partgrid.component';
 //import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'partlist',
     component: PartlistComponent
+  },
+  { 
+    path: 'partgrid',
+    component: PartgridComponent
   }
 
 ];
